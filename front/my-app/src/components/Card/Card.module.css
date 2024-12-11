@@ -1,0 +1,47 @@
+.containerCard{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    background-color: #120742;
+    border-radius: 20px;
+    padding: 20px;
+    width: 40%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.imgCard{
+    width: 200px;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.titleCard{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.descriptionCard{
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.priceCard{
+    font-size: 50px;
+    color: white;
+    background-color: green;
+    width: 25%;
+    border-radius: 20px;
+    text-align: center;
+    margin: auto;
+}
+
+.stockCard{
+    text-align: center;
+    margin-top: 10px;
+}
