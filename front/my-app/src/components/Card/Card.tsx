@@ -10,12 +10,14 @@ export interface IProductPreview {
 
 export const Card = ({ id, name, price, image }: IProductPreview) => {
   return (
-    <div key={id}>
-      <img src={image} />
-      <h2>{name}</h2>
-      <p>${price}</p>
+    <div key={id} className="bg-electricPurple rounded-[10px] w-72 h-72 ml-[120px] mb-8">
+      <div className="flex flex-wrap justify-center items-center">
+        <img src={image} className="w-40" />
+      </div>
+      <h2 className="text-center pt-6 text-obsidian">{name}</h2>
+      <div className="bg-smeraldGreen rounded-[10px] w-40 h-8 ml-auto mr-auto mt-3 flex items-center justify-center">
+        <p className="text-center text-obsidian">${price}</p>
+      </div>
     </div>
   );
 };
-
-

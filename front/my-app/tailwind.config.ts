@@ -11,6 +11,9 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "electricPurple": "#9140CB",
+        "smeraldGreen": "#2ECC71",
+        "obsidian": "#1E1E1E"
       },
     },
   },

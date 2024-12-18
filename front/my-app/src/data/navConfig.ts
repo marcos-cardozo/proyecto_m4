@@ -1,10 +1,12 @@
 export interface NavItem {
-  text: string;
-  path: string;
+  texto: string;
+  dirección: string;
 }
 
 export const navConfig: NavItem[] = [
-  { text: "Inicio", path: "inicio" },
-  { text: "Sobre Nosotros", path: "sobre-nosotros" },
-  { text: "Carrito", path: "carrito" },
+  { texto: "Inicio", dirección: "" },
+  { texto: "Sobre Nosotros", dirección: "sobre-nosotros" },
+  { texto: "Carrito", dirección: "carrito" },
+  { texto: "Iniciar Sesion", dirección: "iniciar-sesion" },
+  { texto: "Registrarse", dirección: "registrarse" },
 ];
