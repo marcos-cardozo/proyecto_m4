@@ -3,6 +3,7 @@ import ImgBaner from "../../public/imagenes/banner/Banner-de-la-pagina.svg";
 import Categories from "@/components/Categories/Categories";
 import Products from "@/components/Products/Products";
 import Footer from "@/components/Footer/Footer";
+import Login from "@/components/Login/Login";
 
 export default function Landing() {
   return (
@@ -15,7 +16,9 @@ export default function Landing() {
         <div>
           <Categories />
           <Products />
+          <Login />
           <Footer />
+
         </div>
       </div>
     </>

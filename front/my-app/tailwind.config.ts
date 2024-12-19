@@ -15,6 +15,9 @@ export default {
         "smeraldGreen": "#2ECC71",
         "obsidian": "#1E1E1E"
       },
+      fontFamily: {
+        bebas: ["Bebas Neue", "cursive"]
+      }
     },
   },
   plugins: [],

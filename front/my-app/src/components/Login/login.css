@@ -1,0 +1,25 @@
+.shadow-goals{
+  box-shadow: rgba(145, 64, 203, 0.4) 0px 5px, 
+              rgba(145, 64, 203, 0.3) 0px 10px, 
+              rgba(145, 64, 203, 0.2) 0px 15px, 
+              rgba(145, 64, 203, 0.1) 0px 20px, 
+              rgba(145, 64, 203, 0.05) 0px 25px;
+}
+
+.shadow-goals-input{
+    box-shadow: rgb(255, 255, 255) 5px 5px, 
+                rgba(202, 202, 202, 0.342) 8px 8px, 
+                rgba(189, 189, 189, 0.199) 9px 9px;
+}
+
+button:hover {
+    box-shadow: rgba(148, 163, 184, 1) 0px 5px, 
+                rgba(148, 163, 184, 0.322) 0px 8px, 
+                rgba(148, 163, 184, 0.226) 0px 9px;
+  }
+  
+input:focus {
+    outline: none;
+    border: none;
+  }
+  
