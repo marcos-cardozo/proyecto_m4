@@ -1,5 +1,4 @@
-import { IProduct } from "../interfaces/OrderInterfaces/IProduct";
-import { products } from "../data/products";
+import { products, IProduct } from "../data/products";
 
 export const getProducts = async (): Promise<IProduct[]> => {
   return products;

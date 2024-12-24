@@ -62,12 +62,13 @@ const RegisterForm = () => {
 
       <div className="flex justify-center">
         <button
-          className="bg-smeraldGreen text-white transition ease-in-out duration-500 font-mono rounded-[10px] h-10  shadow-goals-green hover:bg-green-600 transition ease-in-out delay-75 shadow-goals-green w-1/2"
+          className="bg-smeraldGreen text-white duration-500 font-mono rounded-[10px] h-10  shadow-goals-green hover:bg-green-600 transition ease-in-out delay-75 shadow-goals-green w-1/2"
           type="submit"
         >
           Registrarse
         </button>
       </div>
+      
     </form>
   );
 };
