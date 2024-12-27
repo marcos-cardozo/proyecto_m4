@@ -38,10 +38,10 @@ const RegisterForm = () => {
     };
 
   return (
-    <form className="flex flex-col bg-electricPurple px-10 py-10 rounded-[10px] shadow-goals h-[34rem] w-[50.625rem] mb-10 gap-10"
+    <form className="flex flex-col bg-electricPurple p-5 rounded-[10px] shadow-goals h-[38rem] w-[50.625rem] gap-10"
           onSubmit={handleSubmit}
     >
-      <span className="text-obsidian underline font-mono text-3xl text-center">Registrate</span>
+      <span className="text-obsidian underline font-satoshi font-[900] text-5xl text-center">Registrate</span>
       <div className="flex flex-wrap justify-between">
         {registerConfig.map(
           ({ name, label, type, placeholder }: RegisterConfig) => {
@@ -62,7 +62,7 @@ const RegisterForm = () => {
 
       <div className="flex justify-center">
         <button
-          className="bg-smeraldGreen text-white duration-500 font-mono rounded-[10px] h-10  shadow-goals-green hover:bg-green-600 transition ease-in-out delay-75 shadow-goals-green w-1/2"
+          className="bg-smeraldGreen text-white transition ease-in-out duration-500 font-cabinet font-bold rounded-[10px] h-10 mt-2 shadow-goals-green w-[25%] hover:bg-green-600 "
           type="submit"
         >
           Registrarse

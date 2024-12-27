@@ -1,29 +1,22 @@
 import { navConfig, NavItem } from "@/data/navConfig";
 import Link from "next/link";
-import Image from "next/image";
-import lupaSearch from "/public/imagenes/navbar/lupaSearch.png";
+
 
 const NavBar = () => {
   return (
-    <header className="bg-obsidian sticky top-0">
-      <nav className="container mx-auto flex flex-row justify-between items-center p-4 ">
-        <div className="flex bg-white rounded-[10px] w-1/3 mx-4 mt-2">
-          <Image src={lupaSearch} alt="" className="size-8 p-1" />
-          <input
-            type="text"
-            placeholder="Buscar..."
-            className="w-full rounded-full bg-gray-100 px-4 py-2 text-sm placeholder-gray-500 focus:outline-none text-black"
-          />
-        </div>
-        <span className=" text-electricPurple text-3xl mt-1 ml-10">
+    <header className="flex justify-between items-center w-full fixed top-0 bg-obsidian z-10">
+      <nav className="flex w-full items-center py-5 ml-5">
+        <Link href={"/"}>
+        <span className=" font-telma text-electricPurple text-3xl">
           ClickTech
         </span>
-        <ul className="flex flex-row justify-between">
+        </Link>
+        <ul className="flex ml-auto gap-16 mr-5">
           {navConfig.map((item: NavItem) => {
             return (
-              <li key={item.dirección} className="ml-6 mt-2 text-lg">
+              <li key={item.dirección} className="text-smeraldGreen hover:text-green-200 font-cabinet text-lg mt-1">
                 <Link href={`/${item.dirección}`}>
-                  <span className=" text-white hover:text-smeraldGreen">
+                  <span>
                     {item.texto}
                   </span>
                 </Link>

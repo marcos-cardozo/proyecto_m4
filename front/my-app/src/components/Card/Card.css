@@ -1,0 +1,16 @@
+.boxshadow-purpleCard {
+    box-shadow: rgba(145, 64, 203, 0.4) 0px 5px, 
+                rgba(145, 64, 203, 0.3) 0px 10px, 
+                rgba(145, 64, 203, 0.2) 0px 15px, 
+                rgba(145, 64, 203, 0.1) 0px 20px, 
+                rgba(145, 64, 203, 0.05) 0px 25px;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .boxshadow-purpleCard:hover {
+    box-shadow: rgba(145, 64, 203, 0.4) 0px 4px, 
+                rgba(145, 64, 203, 0.3) 0px 8px, 
+                rgba(145, 64, 203, 0.2) 0px 12px;
+    transform: scale(1.05);
+  }
+  

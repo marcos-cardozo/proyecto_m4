@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "@/components/NavBar/NavBar";
+import ExcludedWrapper from "@/components/NavBar/ExcluededWrapper/ExcludedWrapper";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,10 +27,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>ClickTech</title>
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=telma@700&f[]=satoshi@300,301,400,401,500,501,700,701,900,901&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=archivo@300&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavBar />
+        <ExcludedWrapper>
+          <NavBar />
+        </ExcludedWrapper>
         {children}
       </body>
     </html>

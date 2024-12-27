@@ -19,9 +19,9 @@ const FormInput = ({
 }: FormInputProps) => {
   return (
     <div key={name} className="">
-      <div className="mb-4 font-mono">
+      <div className="mb-4 font-cabinet mt-5">
         <label htmlFor={name} className="text-obsidian">
-          <span className="text-obsidian underline">{label}</span>:
+          <span className="text-obsidian text-xl">{label}</span>:
         </label>
       </div>
       <input
@@ -30,7 +30,7 @@ const FormInput = ({
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
-        className="input-class bg-obsidian rounded-[10px] w-80 h-10 pl-2 mb-4 font-mono shadow-goals-input focus:outline-none "
+        className="input-class bg-obsidian rounded-[10px] w-80 h-10 pl-2 mb-4 shadow-goals-input focus:outline-none focus:ring-2 focus:ring-smeraldGreen"
       />
     </div>
   );

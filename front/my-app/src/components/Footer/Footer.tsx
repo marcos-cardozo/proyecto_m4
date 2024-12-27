@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="text-smeraldGreen flex mt-40">
+    <div className="text-smeraldGreen flex mt-40 font-cabinet gap-10">
       <div className="flex flex-col pl-5 pr-[10rem] mb-5">
         <span className="text-[2rem] mb-5">ClickTech.</span>
         <div>
@@ -27,7 +27,7 @@ const Footer = () => {
             <Link
               href="#"
               key={index}
-              className="underline hover:text-green-800"
+              className="underline hover:text-green-200"
             >
               <span>{elemento}</span>
             </Link>

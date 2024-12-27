@@ -1,8 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://api.fontshare.com/v2/css?f[]=telma@700&f[]=satoshi@300,301,400,401,500,501,700,701,900,901&display=swap');
+
+@font-face {
+  font-family: 'cabinet';
+  src: url('/fuentes/CabinetGrotesk-Variable.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   --background: #ffffff;
@@ -11,7 +19,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #1e1e1e;
     --foreground: #ededed;
   }
 }
@@ -20,14 +28,4 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #1e1e1e;
 }
-
-.containerCardsList {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
-}
-
