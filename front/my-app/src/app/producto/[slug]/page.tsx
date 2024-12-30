@@ -1,14 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 import { IProduct } from "@/data/products";
 import getProduct from "@/helpers/getProduct";
+import Link from "next/link";
 
 const Product = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
 
   const chosenProduct: IProduct | undefined = await getProduct(slug);
-
-  if (!chosenProduct) {
-    return <div>Producto no encontrado 🤷‍♂️</div>;
+  console.log(chosenProduct)
+  if (chosenProduct === undefined) {
+    return (
+      <div className="flex flex-col justify-center items-center">
+        <p className="mt-40 text-center bg-electricPurple rounded-[10px] text-xl w-[17rem] p-2">Producto no encontrado 🤷‍♂️</p>
+        <Link href="/">
+        <button className="btn bg-smeraldGreen p-3 mt-5 rounded-[10px] font-satoshi font-[900] text-xl transition duration-300 ease-in-out hover:bg-green-200 hover:shadow-lg hover:scale-105 text-obsidian" >VOLVER AL HOME</button>
+        </Link>
+      </div>
+  );
   }
 
   const { name, price, description, image, stock } = chosenProduct;

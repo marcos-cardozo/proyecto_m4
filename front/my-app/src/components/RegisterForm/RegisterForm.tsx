@@ -4,6 +4,7 @@ import "./register.css";
 import { registerConfig, RegisterConfig } from "@/data/registerConfig";
 import { useState } from "react";
 import FormInput from "../FormInput/FormInput";
+import Link from "next/link";
 
 const RegisterForm = () => {
   interface FormState {
@@ -32,16 +33,19 @@ const RegisterForm = () => {
     setForm({ ...form, [property]: value });
   };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      alert("Registro de usuario realizado con éxito");
-    };
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert("Registro de usuario realizado con éxito");
+  };
 
   return (
-    <form className="flex flex-col bg-electricPurple p-5 rounded-[10px] shadow-goals h-[38rem] w-[50.625rem] gap-10"
-          onSubmit={handleSubmit}
+    <form
+      className="flex flex-col bg-electricPurple p-5 rounded-[10px] shadow-goals h-[38rem] w-[50.625rem] gap-10"
+      onSubmit={handleSubmit}
     >
-      <span className="text-obsidian underline font-satoshi font-[900] text-5xl text-center">Registrate</span>
+      <span className="text-obsidian underline font-satoshi font-[900] text-5xl text-center">
+        Registrate
+      </span>
       <div className="flex flex-wrap justify-between">
         {registerConfig.map(
           ({ name, label, type, placeholder }: RegisterConfig) => {
@@ -60,15 +64,23 @@ const RegisterForm = () => {
         )}
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center items-center flex-col">
         <button
           className="bg-smeraldGreen text-white transition ease-in-out duration-500 font-cabinet font-bold rounded-[10px] h-10 mt-2 shadow-goals-green w-[25%] hover:bg-green-600 "
           type="submit"
         >
           Registrarse
         </button>
+
+        <p className="text-obsidian font-satoshi font-[500] mt-5">
+          Ya tienes una cuenta?
+          <Link href={"/auth/login"}>
+            <span className="hover:font-[800] hover:underline ml-1 transition-all duration-200 ease-in-out ">
+              Inicia Sesion
+            </span>
+          </Link>
+        </p>
       </div>
-      
     </form>
   );
 };

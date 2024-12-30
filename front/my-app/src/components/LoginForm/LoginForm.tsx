@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./login.css";
 import { loginConfig } from "@/data/loginConfig";
 import FormInput from "../FormInput/FormInput";
+import Link from "next/link";
 
 const LoginForm = () => {
   const [form, setForm] = useState<{ email: string; password: string }>({
@@ -47,13 +48,22 @@ const LoginForm = () => {
           );
         })}
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center flex-col">
         <button
           className="bg-smeraldGreen text-white transition ease-in-out duration-500 font-cabinet font-bold rounded-[10px] h-10 mt-8 shadow-goals-green w-[40%] hover:bg-green-600 "
           type="submit"
         >
           Iniciar Sesion
         </button>
+
+        <p className="text-obsidian font-satoshi font-[500] mt-5">
+          No tienes una cuenta aun?
+          <Link href={"/auth/register"}>
+            <span className="hover:font-[800] hover:underline ml-1 transition-all duration-300 ease-in-out">
+              Registrate
+            </span>
+          </Link>
+        </p>
       </div>
     </form>
   );

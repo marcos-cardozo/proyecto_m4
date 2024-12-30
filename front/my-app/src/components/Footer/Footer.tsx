@@ -7,9 +7,9 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="text-smeraldGreen flex mt-40 font-cabinet gap-10">
+    <div className="text-smeraldGreen flex mt-40 font-cabinet gap-8">
       <div className="flex flex-col pl-5 pr-[10rem] mb-5">
-        <span className="text-[2rem] mb-5">ClickTech.</span>
+        <span className="text-[1.8rem] mb-5">ClickTech.</span>
         <div>
           {infoFooter.map((elemento: InfoFooter) => (
             <p key={elemento.text}>
@@ -21,7 +21,7 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col pr-[10rem] mb-5">
-        <span className="text-[2rem] mb-5">Enlaces de interes</span>
+        <span className="text-[1.8rem] mb-5 w-[15rem]">Enlaces de interes</span>
         <div className="flex flex-col">
           {linksFooter.map((elemento, index) => (
             <Link
@@ -35,8 +35,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex flex-col mb-5 ml-5">
-        <span className="text-[2rem] mb-5">Redes Sociales</span>
+      <div className="flex flex-col mb-5 ml-5 mr-5">
+        <span className="text-[1.8rem] mb-5">Redes Sociales</span>
         <div className="flex justify-center items-center">
           {imgFooter.map((elemento) => (
             <Link href="#" key={elemento.name}>

@@ -7,7 +7,7 @@ const getProduct = async (id: string) => {
   const product: IProduct | undefined = products.find(
     (product) => product.id === parseInt(id, 10)
   );
-  if (!product) throw new Error("producto no existente");
+
   return product;
 };
 
