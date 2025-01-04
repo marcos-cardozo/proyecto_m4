@@ -1,12 +1,18 @@
-export interface NavItem {
+export interface INavItem {
   texto: string;
   dirección: string;
 }
 
-export const navConfig: NavItem[] = [
+export const navConfigLoggedIn: INavItem[] = [
   { texto: "Inicio", dirección: "" },
-  { texto: "Sobre Nosotros", dirección: "sobre-nosotros" },
+  { texto: "Mis Pedidos", dirección: "mis-pedidos" },
   { texto: "Carrito", dirección: "carrito" },
-  { texto: "Iniciar Sesion", dirección: "auth/login" },
+  { texto: "Mi cuenta", dirección: "mi-cuenta" },
+];
+
+export const navConfigLoggedOut: INavItem[] = [
+  { texto: "Inicio", dirección: "" },
+  { texto: "Carrito", dirección: "carrito" },
+  { texto: "Iniciar Sesión", dirección: "auth/login" },
   { texto: "Registrarse", dirección: "auth/register" },
 ];

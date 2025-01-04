@@ -1,22 +1,31 @@
 /* eslint-disable @next/next/no-img-element */
-import { IProduct } from "@/data/products";
+import { AddProduct } from "@/components/AddProduct/AddProduct";
+import "./producto.css";
+
+
 import getProduct from "@/helpers/getProduct";
 import Link from "next/link";
+import { IProduct } from "@/interfaces/UserInterfaces/IProduct";
+import { BuyProduct } from "@/components/BuyProduct/BuyProduct";
 
 const Product = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
 
   const chosenProduct: IProduct | undefined = await getProduct(slug);
-  console.log(chosenProduct)
+  console.log(chosenProduct);
   if (chosenProduct === undefined) {
     return (
       <div className="flex flex-col justify-center items-center">
-        <p className="mt-40 text-center bg-electricPurple rounded-[10px] text-xl w-[17rem] p-2">Producto no encontrado 🤷‍♂️</p>
+        <p className="mt-40 text-center bg-electricPurple rounded-[10px] text-xl w-[17rem] p-2">
+          Producto no encontrado 🤷‍♂️
+        </p>
         <Link href="/">
-        <button className="btn bg-smeraldGreen p-3 mt-5 rounded-[10px] font-satoshi font-[900] text-xl transition duration-300 ease-in-out hover:bg-green-200 hover:shadow-lg hover:scale-105 text-obsidian" >VOLVER AL HOME</button>
+          <button className="btn bg-smeraldGreen p-3 mt-5 rounded-[10px] font-satoshi font-[900] text-xl transition duration-300 ease-in-out hover:bg-green-200 hover:shadow-lg hover:scale-105 text-obsidian">
+            VOLVER AL HOME
+          </button>
         </Link>
       </div>
-  );
+    );
   }
 
   const { name, price, description, image, stock } = chosenProduct;
@@ -52,12 +61,8 @@ const Product = async ({ params }: { params: Promise<{ slug: string }> }) => {
         </div>
 
         <div className="flex justify-evenly my-10">
-          <button className="btn bg-smeraldGreen p-3 rounded-[10px] font-satoshi font-[900] text-xl transition duration-300 ease-in-out hover:bg-green-200 hover:shadow-lg hover:scale-105">
-            COMPRAR
-          </button>
-          <button className="btn bg-orange-400 p-3 rounded-[10px] font-satoshi font-[900] text-xl transition duration-300 ease-in-out hover:bg-orange-300 hover:shadow-lg hover:scale-105">
-            AGREGAR AL CARRITO
-          </button>
+          <AddProduct product={chosenProduct}/>
+          <BuyProduct product={chosenProduct}/>
         </div>
       </div>
     </main>

@@ -11,14 +11,12 @@ export default function Landing() {
         <Image src={ImgBaner} alt="" className="w-9/12" />
       </div>
 
-      <div>
-        <div>
+      <main>
+        <section>
           <Categories />
           <Products />
-          <Footer />
-
-        </div>
-      </div>
+        </section>
+      </main>
     </>
   );
 }

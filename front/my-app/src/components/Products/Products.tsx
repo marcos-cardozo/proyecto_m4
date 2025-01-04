@@ -8,7 +8,7 @@ export default async function Products() {
   const products: IProductPreview[] = await getProducts();
 
   return (
-    <div className="">
+    <section>
       <div>
         <div className="flex justify-center items-center mb-20 mt-32 bg-electricPurple rounded-[10px] w-3/5 m-auto boxshadow-purple">
           <h1 className=" text-4xl  text-center font-satoshi font-[900] text-obsidian ">
@@ -25,6 +25,6 @@ export default async function Products() {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

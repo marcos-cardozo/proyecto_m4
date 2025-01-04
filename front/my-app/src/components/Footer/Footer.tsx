@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="text-smeraldGreen flex mt-40 font-cabinet gap-8">
+    <footer className="text-smeraldGreen flex mt-40 font-cabinet gap-8 pt-10 pb-10">
       <div className="flex flex-col pl-5 pr-[10rem] mb-5">
         <span className="text-[1.8rem] mb-5">ClickTech.</span>
         <div>
@@ -24,13 +24,9 @@ const Footer = () => {
         <span className="text-[1.8rem] mb-5 w-[15rem]">Enlaces de interes</span>
         <div className="flex flex-col">
           {linksFooter.map((elemento, index) => (
-            <Link
-              href="#"
-              key={index}
-              className="underline hover:text-green-200"
-            >
-              <span>{elemento}</span>
-            </Link>
+            <span key={index} className="underline hover:text-green-200">
+              <Link href="#">{elemento}</Link>
+            </span>
           ))}
         </div>
       </div>
@@ -40,12 +36,12 @@ const Footer = () => {
         <div className="flex justify-center items-center">
           {imgFooter.map((elemento) => (
             <Link href="#" key={elemento.name}>
-            <img src={elemento.image} className="pr-5" />
+              <img src={elemento.image} className="pr-5" />
             </Link>
           ))}
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

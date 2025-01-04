@@ -37,7 +37,7 @@ export const loginUserService = async (
     },
     relations: ["credential", "orders"],
   });
-  if (!user) throw new Error("User not found");
+  if (!user) throw new Error("Usuario no encontrado");
   if (
     await checkPasswordService(loginUserDto.password, user.credential.password)
   ) {
@@ -48,6 +48,6 @@ export const loginUserService = async (
       token,
     };
   } else {
-    throw new ClientError("Invalid password");
+    throw new ClientError("Contraseña invalida");
   }
 };

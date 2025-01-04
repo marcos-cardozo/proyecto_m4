@@ -1,15 +1,47 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState } from "react";
 import "./login.css";
 import { loginConfig } from "@/data/loginConfig";
 import FormInput from "../FormInput/FormInput";
 import Link from "next/link";
+import Toast from "../Toast/Toats";
+import { ILogin } from "@/interfaces/UserInterfaces/ILoginUser";
+import { useAuth } from "@/context/AuthContext";
+import { usePublic } from "@/hook/usePublic";
+
+const initialForm: ILogin = {
+  email: "",
+  password: "",
+};
 
 const LoginForm = () => {
-  const [form, setForm] = useState<{ email: string; password: string }>({
-    email: "",
-    password: "",
-  });
+  usePublic()
+  const [form, setForm] = useState<ILogin>(initialForm);
+  const [error, setError] = useState<ILogin>(initialForm);
+
+  const { login } = useAuth();
+
+  const validateForm = () => {
+    let valid = true;
+    const newError = { ...error };
+
+    if (!form.email.includes("@")) {
+      newError.email = "Email invalido";
+      valid = false;
+    } else {
+      newError.email = "";
+    }
+    if (form.password.length < 6) {
+      newError.password = "La contraseña debe tener al menos 6 caracteres";
+      valid = false;
+    } else {
+      newError.password = "";
+    }
+
+    setError(newError);
+    return valid;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const property = e.target.name;
@@ -17,11 +49,37 @@ const LoginForm = () => {
     const value = e.target.value;
 
     setForm({ ...form, [property]: value });
+
+    const newError = { ...error };
+
+    switch (property) {
+      case "email":
+        newError.email = "";
+        break;
+      case "password":
+        newError.password = "";
+        break;
+    }
+    setError(newError);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert("Inicio Sesión con exito");
+    const data = { ...form };
+    console.log(data);
+    if (validateForm()) {
+      try {
+        await login(data);
+        Toast.fire("Inicio de sesión exitoso", "", "success");
+      } catch (error: any) {
+        console.log(error);
+        Toast.fire(
+          "Hubo un error al iniciar sesión",
+          error.response.data.message,
+          "error"
+        );
+      }
+    }
   };
 
   return (
@@ -44,13 +102,14 @@ const LoginForm = () => {
               placeholder={placeholder}
               handleChange={handleChange}
               value={form[name as keyof typeof form]}
+              errorMessage={error[name as keyof ILogin]}
             />
           );
         })}
       </div>
       <div className="flex justify-center items-center flex-col">
         <button
-          className="bg-smeraldGreen text-white transition ease-in-out duration-500 font-cabinet font-bold rounded-[10px] h-10 mt-8 shadow-goals-green w-[40%] hover:bg-green-600 "
+          className="btn- bg-smeraldGreen text-white transition ease-in-out duration-500 font-cabinet font-bold rounded-[10px] h-10 mt-8 shadow-goals-green w-[40%] hover:bg-green-600 "
           type="submit"
         >
           Iniciar Sesion

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Categories = () => {
   return (
-    <>
+    <section>
       <div className="flex justify-center items-center my-20 mt-32 text-obsidian">
         <h1 className="bg-electricPurple rounded-[10px] text-5xl w-80 text-center font-satoshi font-[900] boxshadow-purple">
           CATEGORIAS
@@ -25,7 +25,7 @@ const Categories = () => {
           );
         })}
       </div>
-    </>
+    </section>
   );
 };
 
