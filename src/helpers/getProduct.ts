@@ -1,4 +1,4 @@
-import { IProduct } from "@/data/products";
+import { IProduct } from "@/interfaces/UserInterfaces/IProduct";
 import { getProducts } from "./getProducts";
 
 const getProduct = async (id: string) => {

@@ -1,5 +1,6 @@
 import { NEXT_PUBLIC_API_URL } from "@/config/envs";
-import { IProduct } from "../data/products";
+import { IProduct } from "@/interfaces/UserInterfaces/IProduct";
+
 
 export const getProducts = async (): Promise<IProduct[]> => {
   const response = await fetch(`${NEXT_PUBLIC_API_URL}/products`);
