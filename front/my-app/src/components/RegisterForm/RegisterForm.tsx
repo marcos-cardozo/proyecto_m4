@@ -22,9 +22,10 @@ const initialForm: IRegister = {
 };
 
 const RegisterForm = () => {
-    usePublic()
+  usePublic();
   const [form, setForm] = useState<IRegister>(initialForm);
   const [error, setError] = useState<IRegister>(initialForm);
+  const [formValid, setFormValid] = useState<boolean>(false);
 
   const validateForm = () => {
     let isValid = true;
@@ -119,8 +120,19 @@ const RegisterForm = () => {
             : "";
         break;
     }
-
     setError(newError);
+    setFormValid(
+      value.trim() !== "" &&
+        ((property === "email" && value.includes("@")) ||
+          form.email.includes("@")) &&
+        ((property === "password" && value.length >= 6) ||
+          form.password.length >= 6) &&
+        ((property === "repeatPassword" && value === form.password) ||
+          form.repeatPassword === form.password) &&
+        ((property === "name" && value.length > 3) || form.name.length > 3) &&
+        ((property === "address" && value.length > 3) || form.address.length > 3) &&
+        ((property === "phone" && value.length > 3) || form.phone.length > 3)
+    );
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -149,7 +161,7 @@ const RegisterForm = () => {
 
   return (
     <form
-      className="flex flex-col bg-electricPurple p-3 rounded-[10px] shadow-goals h-[34rem] w-[48rem] gap-2"
+      className="flex flex-col bg-electricPurple p-3 rounded-[10px] shadow-goals h-[36rem] w-[48rem] gap-2"
       onSubmit={handleSubmit}
     >
       <span className="text-obsidian underline font-satoshi font-[900] text-5xl text-center">
@@ -176,8 +188,9 @@ const RegisterForm = () => {
 
       <div className="flex justify-center items-center flex-col">
         <button
-          className="bg-smeraldGreen text-white transition ease-in-out duration-500 font-cabinet font-bold rounded-[10px] h-10 mt-2 shadow-goals-green w-[25%] hover:bg-green-600"
+          className="bg-smeraldGreen text-white transition ease-in-out duration-500 font-cabinet font-bold rounded-[10px] h-10 mt-2 shadow-goals-green w-[25%] hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
           type="submit"
+          disabled={!formValid}
         >
           Registrarse
         </button>

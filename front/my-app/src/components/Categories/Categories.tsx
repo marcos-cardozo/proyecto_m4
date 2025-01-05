@@ -15,7 +15,7 @@ const Categories = () => {
       <div className="flex flex-wrap justify-center items-center gap-20">
         {categories.map((elemento: ICategories, index: number) => {
           return (
-            <Link href="#" key={index}>
+            <Link href={`/categoria/${elemento.id}`} key={index}>
               <CategoriesCard
                 text={elemento.text}
                 image={elemento.image}

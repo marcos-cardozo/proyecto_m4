@@ -10,7 +10,7 @@ import { useAuth } from "@/context/AuthContext";
 
 const Carrito = () => {
   const { items, removeItemFromCart, emptyCart } = useCart();
-  const { token, user } = useAuth();
+  const { token, user, isAuthenticated } = useAuth();
 
   const emptyCartHandler: () => void = () => {
     Swal.fire({
@@ -27,6 +27,15 @@ const Carrito = () => {
   };
 
   const checkOutHandher: () => void = () => {
+            if (!isAuthenticated) {
+                Swal.fire({
+                  title: "Error",
+                  text: "Debes estar autenticado para comprar.",
+                  icon: "error",
+                });
+                return;
+              }
+
     Swal.fire({
       title: "¿Estas seguro que quieres comprar?",
       text: "¡No podrás revertir esto!",

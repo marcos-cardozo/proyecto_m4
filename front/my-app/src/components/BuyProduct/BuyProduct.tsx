@@ -17,15 +17,7 @@ export const BuyProduct = ({product}: {product: IProduct}) => {
             });
             return;
           }
-        
-          if (!product || !product.id) {
-            Swal.fire({
-              title: "Error",
-              text: "Producto inválido. Por favor, inténtalo nuevamente.",
-              icon: "error",
-            });
-            return;
-          }
+          
         Swal.fire({
           title: "¿Estas seguro que quieres comprar?",
           text: "¡No podrás revertir esto!",

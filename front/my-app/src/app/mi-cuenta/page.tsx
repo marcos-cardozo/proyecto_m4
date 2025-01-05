@@ -1,8 +1,10 @@
 "use client";
 import { useAuth } from "@/context/AuthContext";
 import "./miCuenta.css";
+import { usePrivate } from "@/hook/usePrivate";
 
 const MiCuenta = () => {
+  usePrivate()
   const { user } = useAuth();
 
   if (user) {
@@ -13,16 +15,24 @@ const MiCuenta = () => {
         </h1>
         <div className="font-cabinet flex flex-col gap-10 mt-5 text-xl font-semibold py-5">
           <div className="bg-smeraldGreen rounded-[10px] text-obsidian green-shadow-goals">
-            <p className="p-1">Nombre: {user.name}</p>
+            <p className="p-1">
+              <span className="font-[800]">Nombre:</span> {user.name}
+            </p>
           </div>
           <div className="bg-smeraldGreen rounded-[10px] text-obsidian green-shadow-goals">
-            <p className="p-2">Email: {user.email}</p>
+            <p className="p-2">
+              <span className="font-[800]">Email:</span> {user.email}
+            </p>
           </div>
           <div className="bg-smeraldGreen rounded-[10px] text-obsidian green-shadow-goals">
-            <p className="p-2">Direccion: {user.address} </p>
+            <p className="p-2">
+              <span className="font-[800]">Direccion:</span> {user.address}{" "}
+            </p>
           </div>
           <div className="bg-smeraldGreen rounded-[10px] text-obsidian green-shadow-goals">
-            <p className="p-2">Telefono: {user.phone} </p>
+            <p className="p-2">
+              <span className="font-[800]">Telefono:</span> {user.phone}{" "}
+            </p>
           </div>
         </div>
       </div>

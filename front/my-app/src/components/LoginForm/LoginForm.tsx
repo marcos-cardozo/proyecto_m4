@@ -16,9 +16,10 @@ const initialForm: ILogin = {
 };
 
 const LoginForm = () => {
-  usePublic()
+  usePublic();
   const [form, setForm] = useState<ILogin>(initialForm);
   const [error, setError] = useState<ILogin>(initialForm);
+  const [formValid, setFormValid] = useState<boolean>(false);
 
   const { login } = useAuth();
 
@@ -61,6 +62,14 @@ const LoginForm = () => {
         break;
     }
     setError(newError);
+
+    setFormValid(
+      value.trim() !== "" &&
+        ((property === "email" && value.includes("@")) ||
+          form.email.includes("@")) &&
+        ((property === "password" && value.length >= 6) ||
+          form.password.length >= 6)
+    );
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -73,6 +82,7 @@ const LoginForm = () => {
         Toast.fire("Inicio de sesión exitoso", "", "success");
       } catch (error: any) {
         console.log(error);
+
         Toast.fire(
           "Hubo un error al iniciar sesión",
           error.response.data.message,
@@ -109,8 +119,9 @@ const LoginForm = () => {
       </div>
       <div className="flex justify-center items-center flex-col">
         <button
-          className="btn- bg-smeraldGreen text-white transition ease-in-out duration-500 font-cabinet font-bold rounded-[10px] h-10 mt-8 shadow-goals-green w-[40%] hover:bg-green-600 "
+          className="btn- bg-smeraldGreen text-white transition ease-in-out duration-500 font-cabinet font-bold rounded-[10px] h-10 mt-8 shadow-goals-green w-[40%] hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
           type="submit"
+          disabled={!formValid}
         >
           Iniciar Sesion
         </button>

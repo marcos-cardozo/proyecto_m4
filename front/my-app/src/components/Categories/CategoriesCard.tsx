@@ -4,12 +4,13 @@ interface ICategoriesCard {
   text: string;
   image: string;
   index: number;
+
 }
 
-const CategoriesCard = ({ text, image, index }: ICategoriesCard) => {
+const CategoriesCard = ({ text, image, index}: ICategoriesCard) => {
   return (
     <div
-      className={`flex flex-col rounded-[10px] w-72 h-72 transform transition duration-300 ease-in-out hover:scale-105 ${
+    className={`flex flex-col rounded-[10px] w-72 h-72 transform transition duration-300 ease-in-out hover:scale-105 ${
         index > 2 ? "bg-smeraldGreen boxshadow-greenCard"  : "bg-electricPurple boxshadow-purpleCard"
       } `}
     >
