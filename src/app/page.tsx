@@ -2,7 +2,6 @@ import Image from "next/image";
 import ImgBaner from "../../public/imagenes/banner/Banner-de-la-pagina.svg";
 import Categories from "@/components/Categories/Categories";
 import Products from "@/components/Products/Products";
-import Footer from "@/components/Footer/Footer";
 
 export default function Landing() {
   return (
